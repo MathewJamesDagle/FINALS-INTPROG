@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { __decorate } from \"tslib\";\nimport { Component } from '@angular/core';\nlet RatingComponent = class RatingComponent {};\nRatingComponent = __decorate([Component({\n  templateUrl: 'details.component.html'\n})], RatingComponent);\nexport { RatingComponent };","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

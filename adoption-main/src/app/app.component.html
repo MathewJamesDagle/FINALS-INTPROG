@@ -1,0 +1,24 @@
+﻿<div class="app-container" [ngClass]="{ 'bg-light': account }">
+    <!-- main nav -->
+    <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="account">
+        <div class="navbar-nav">
+            <img src="../assets/images/logo.png" class="img-fluid rounded rounded-circle bg-light" style="float:left;margin:10px 10px" width="40px" alt="Pet Adoption">
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item nav-link" style="font-size: 12pt;margin:10px 10px"><i class="fa fa-home" style="margin-right: 10px;"></i>Home</a>
+            <a routerLink="/profile" routerLinkActive="active" class="nav-item nav-link" style="font-size: 12pt;margin:10px 10px"><i class="fa fa-user-circle" style="margin-right: 10px;"></i>Profile</a>
+            <a *ngIf="account.role === Role.User" routerLink="/myrequest" routerLinkActive="active" class="nav-item nav-link" style="font-size: 12pt;margin:10px 10px"><i class="fa fa-inbox" style="margin-right: 10px;"></i>My Request</a>
+            <a *ngIf="account.role === Role.Admin" routerLink="/requests" routerLinkActive="active" class="nav-item nav-link" style="font-size: 12pt;margin:10px 10px"><i class="fa fa-inbox" style="margin-right: 10px;"></i>Requests</a>
+            <a *ngIf="account.role === Role.User" routerLink="/ratings" routerLinkActive="active" class="nav-item nav-link" style="font-size: 12pt;margin:10px 10px"><i class="fa fa-star-half-o" style="margin-right: 10px;"></i>Ratings</a>
+            <a *ngIf="account.role === Role.Admin" routerLink="/admin" routerLinkActive="active" class="nav-item nav-link" style="font-size: 12pt;margin:10px 10px"><i class="fa fa-user-circle-o" style="margin-right: 10px;"></i>Admin</a>
+            <a (click)="logout()" class="nav-item nav-link float-right" style="font-size: 12pt;margin:10px 10px"><i class="fa fa-sign-out" style="margin-right: 10px;"></i>Logout</a>
+        </div>
+    </nav>
+
+    <!-- subnav router outlet -->
+    <router-outlet name="subnav"></router-outlet>
+
+    <!-- global alert -->
+    <alert></alert>
+
+    <!-- main router outlet -->
+    <router-outlet></router-outlet>
+</div>

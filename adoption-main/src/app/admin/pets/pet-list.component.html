@@ -1,0 +1,44 @@
+<h1>Pets</h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Add Pets</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width:10%">Image</th>
+            <th style="width:15%">Name</th>
+            <th style="width:15%">Breed</th>
+            <th style="width:15%">Description</th>
+            <th style="width:10%">Sex</th>
+            <th style="width:10%">Age</th>
+            <th style="width:10%">Color</th>
+            <th style="width:10%">Size</th>
+            <th style="width:15%">Type</th>
+            <th style="width:10%">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pet of pets">
+            <td>
+                <img [src]="'http://localhost:4000/' + pet.image" alt="{{ pet.name }}" width="100" height="100" />
+            </td>
+            <td>{{ pet.name }}</td>
+            <td>{{ pet.description }}</td>
+            <td>{{ pet.breed }}</td>
+            <td>{{ pet.sex }}</td>
+            <td>{{ pet.age }}</td>
+            <td>{{ pet.color }}</td>
+            <td>{{ pet.size }}</td>
+            <td>{{ pet.type }}</td>
+            <td style="white-space: nowrap">
+                <a routerLink="edit/{{ pet.id }}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                <button (click)="deletePet(pet.id)" class="btn btn-sm btn-danger btn-delete-event">
+                    <span>Delete</span>
+                </button>
+            </td>
+        </tr>
+        <tr *ngIf="!pets.length">
+            <td colspan="7" class="text-center">
+                <span>No pets available</span>
+            </td>
+        </tr>
+    </tbody>
+</table>

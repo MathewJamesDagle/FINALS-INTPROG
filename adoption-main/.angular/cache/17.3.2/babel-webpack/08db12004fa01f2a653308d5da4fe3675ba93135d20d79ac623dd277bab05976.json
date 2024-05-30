@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Rating {\n  id;\n  name;\n  message;\n  rate;\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

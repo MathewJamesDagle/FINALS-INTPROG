@@ -1,0 +1,64 @@
+﻿<div class="p-4">
+  <div class="container">
+    <div class="card-body rounded" style="background-color:darkgray">
+      <img src="../assets/images/logo.png" class="img-fluid rounded mx-auto d-block rounded-circle" width="25%" alt="Pet Adoption">
+    </div>
+
+    <br>
+
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#all">All</a></li>
+      <li><a data-toggle="tab" href="#dogs">Dogs</a></li>
+      <li><a data-toggle="tab" href="#cats">Cats</a></li>
+    </ul>
+
+    <div class="card-body border">
+      <br>
+      <div class="container">
+        <div class="row" ng>
+          <div class="col-2" *ngFor="let pet of pets">
+            <img [src]="'http://localhost:4000/' + pet.image" class="img-fluid rounded rounded-circle" width="100px" height="100px" alt="{{ pet.name }}" (click)="openModal(pet)">
+            <p style="margin-top: 5px; margin-left: 35px; margin-bottom: -5px; font-size: 18px;">{{ pet.name }}</p>
+            <p style="margin-left: 15px;">{{ truncateText(pet.description, 13) }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div *ngIf="selectedPet" class="modal" style="display: block; background-color: rgba(0, 0, 0, 0.5);">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">{{ selectedPet.name }}</h4>
+        <button type="button" class="close" (click)="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4">
+            <img [src]="'http://localhost:4000/' + selectedPet.image" class="img-fluid rounded rounded-circle" width="100px" height="100px" alt="{{ selectedPet.name }}">
+            <p style="margin-top: 5px; margin-left: 35px;">{{ selectedPet.name }}</p>
+          </div>
+          <div class="col-md-8">
+            <p><strong>Breed:</strong> {{ selectedPet.breed }}</p>
+            <p><strong>Sex:</strong> {{ selectedPet.sex }}</p>
+            <p><strong>Age:</strong> {{ selectedPet.age }}</p>
+            <p><strong>Color:</strong> {{ selectedPet.color }}</p>
+            <p><strong>Size:</strong> {{ selectedPet.size }}</p>
+            <!-- Add more details here if needed -->
+          </div>
+        </div>
+        <div class="row mt-3" *ngIf="!isAdmin">
+          <div class="col-md-6 text-center">
+            <button type="button" class="btn btn-primary" (click)="adoptPet(selectedPet.id)">Adopt Me</button>
+          </div>
+          <div class="col-md-6 text-center">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

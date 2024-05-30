@@ -1,0 +1,28 @@
+<h1>Ratings</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width:15%">Name</th>
+            <th style="width:15%">Message</th>
+            <th style="width:15%">Rate</th>
+            <th style="width:10%">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let rating of ratings">
+            <td>{{ rating.name }}</td>
+            <td>{{ rating.message }}</td>
+            <td>{{ rating.rate }}</td>
+            <td style="white-space: nowrap">
+                <button (click)="deleteRating(rating.id)" class="btn btn-sm btn-danger btn-delete-event">
+                    <span>Delete</span>
+                </button>
+            </td>
+        </tr>
+        <tr *ngIf="!ratings.length">
+            <td colspan="7" class="text-center">
+                <span>No ratings available</span>
+            </td>
+        </tr>
+    </tbody>
+</table>

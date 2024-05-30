@@ -1,0 +1,78 @@
+<h1 *ngIf="isAddMode">Add Pets</h1>
+<h1 *ngIf="!isAddMode">Edit Pet</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label>Photo</label>
+        <input type="file" (change)="onFileSelected($event)" class="form-control-file" />
+    </div> <!-- Closing div added here -->
+    <div class="form-row">
+        <div class="form-group col-5">
+            <label>Name</label>
+            <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                <div *ngIf="f.name.errors.required">Pet's name is required</div>
+            </div>
+        </div>
+        <div class="form-group col-5">
+            <label>Breed</label>
+            <input type="text" formControlName="breed" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.breed.errors }" />
+            <div *ngIf="submitted && f.breed.errors" class="invalid-feedback">
+                <div *ngIf="f.breed.errors.required">Pet's breed is required</div>
+            </div>
+        </div>
+        <div class="form-group col-2">
+            <label>Type</label>
+            <select formControlName="type" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.type.errors }">
+                    <option value="Dog">Dog</option>
+                    <option value="Cat">Cat</option>
+            </select>
+            <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+                <div *ngIf="f.type.errors.required">Type of pet is required</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col">
+            <label>Sex</label>
+            <input type="text" formControlName="sex" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.sex.errors }"/>
+            <div *ngIf="submitted && f.sex.errors" class="invalid-feedback">
+                <div *ngIf="f.sex.errors.required">Pet's sex is required</div>
+            </div>
+        </div>
+        <div class="form-group col">
+            <label>Age</label>
+            <input type="text" formControlName="age" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.age.errors }"/>
+            <div *ngIf="submitted && f.age.errors" class="invalid-feedback">
+                <div *ngIf="f.age.errors.required">Pet's age is required</div>
+            </div>
+        </div>
+        <div class="form-group col">
+            <label>Color</label>
+            <input type="text" formControlName="color" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.color.errors }" />
+            <div *ngIf="submitted && f.color.errors" class="invalid-feedback">
+                <div *ngIf="f.color.errors.required">Pet's color is required</div>
+            </div>
+        </div>
+        <div class="form-group col">
+            <label>Size</label>
+            <input type="text" formControlName="size" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.size.errors }" />
+            <div *ngIf="submitted && f.size.errors" class="invalid-feedback">
+                <div *ngIf="f.size.errors.required">Pet's size is required</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }"></textarea>
+        <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+            <div *ngIf="f.description.errors.required">Pet's description is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Save
+        </button>
+        <button type="button" class="btn btn-secondary ml-2" (click)="onCancel()">Cancel</button>
+    </div>
+</form>

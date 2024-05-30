@@ -1,0 +1,108 @@
+/* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+}
+
+.review-form, .reviews {
+    margin-top: 20px;
+}
+
+.review-form h2, .reviews h2 {
+    font-size: 1.5em;
+    color: #444;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.stars option {
+    font-size: 2em;
+    cursor: pointer;
+    color: #ffcc00;
+}
+
+.stars option[selected] {
+    font-weight: bold;
+    background-color: #ffcc00;
+    color: white;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.reviews .review {
+    margin-top: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.reviews .review:last-child {
+    border-bottom: none;
+}
+
+.review-box {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.review-box h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.review-box .stars {
+    margin: 5px 0;
+}
+
+.review-box p {
+    margin: 5px 0 0;
+}

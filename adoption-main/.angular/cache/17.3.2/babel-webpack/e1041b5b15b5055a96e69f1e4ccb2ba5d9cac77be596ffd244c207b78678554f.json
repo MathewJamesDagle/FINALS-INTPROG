@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Pet {\n  id;\n  name;\n  breed;\n  description;\n  sex;\n  age;\n  color;\n  size;\n  photo;\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

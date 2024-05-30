@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoption Reviews</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Adoption Reviews</h1>
+
+        <div class="review-form">
+            <h2>Add your review:</h2>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" [ngClass]="{ 'add-mode': isAddMode }">
+                <div>
+                    <label for="user-name">Your Name:</label>
+                    <input type="text" id="user-name" formControlName="name" placeholder="Enter your name">
+                </div>
+                <div>
+                    <label for="review-comment">Your Review:</label>
+                    <textarea id="review-comment" formControlName="message" rows="4" cols="50" placeholder="Write your review here..."></textarea>
+                </div>
+                <div style="margin-bottom: 25px;">
+                    <label for="star-rating">Rating:</label>
+                    <select style="width:150px;" class="stars" id="star-rating" formControlName="rate">
+                        <option class="stars" value="1">★</option>
+                        <option class="stars" value="2">★★</option>
+                        <option class="stars" value="3">★★★</option>
+                        <option class="stars" value="4">★★★★</option>
+                        <option class="stars" value="5">★★★★★</option>
+                    </select>
+                </div>
+                <button type="submit" [disabled]="loading">Submit Review</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
